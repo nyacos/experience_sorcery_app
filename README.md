@@ -18,7 +18,7 @@ Rails；5.2.3
 Node.js：15.14.0 以上
 
 ```bash
-$ git clone git@github.com:Tsuchiya2/experience_sorcery_app.git
+$ git clone git@github.com:runteq/experience_sorcery_app.git
 $ cd experience_sorcery_app
 $ git remote rm origin
 $ git checkout -b challenge_sorcery
