@@ -112,6 +112,11 @@ $ rails g scaffold_controller user email:string crypted_password:string salt:str
 こちらの記載まで取り組んでみましょう！
 >Now run the app and create a new user at http://0.0.0.0:3000/users. Voila! The password was automatically encrypted, and a salt was also auto-created! By default the encryption algorithm used is BCrypt (using the bcrypt-ruby gem) but that can be configured, as well as the salt, and the database field names.
 
+1. `user_params`を書き換える(crypted_passwordはSorceryがユーザーが入力したpasswordを元にハッシュ化して保存するのでユーザからの入力は受け付けてはいけません)
+2. `_form.html.erb`を書き換える(上と同じ理由です)
+3. `user.rb`に
+
+
 サーバーを起動して[http://localhost:3000/users/](http://localhost:3000/users/)にアクセスした際に以下の画像が表示できていればOKです！
 
 ```bash
