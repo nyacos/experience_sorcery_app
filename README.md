@@ -114,7 +114,8 @@ $ rails g scaffold_controller user email:string crypted_password:string salt:str
 
 1. `user_params`を書き換える(crypted_passwordはSorceryがユーザーが入力したpasswordを元にハッシュ化して保存するのでユーザからの入力は受け付けてはいけません)
 2. `_form.html.erb`を書き換える(上と同じ理由です)
-3. `user.rb`に
+3. `user.rb`にバリデーションの処理を書く(if以降はいま頑張って理解する必要はありません)
+4. `routes.rb`にルーティングの設定を書く
 
 
 サーバーを起動して[http://localhost:3000/users/](http://localhost:3000/users/)にアクセスした際に以下の画像が表示できていればOKです！
