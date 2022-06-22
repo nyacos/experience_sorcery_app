@@ -65,7 +65,7 @@ $ rails g sorcery:install
 
 上記のファイルの内、test関係以外の３ファイルの中身をざっと確認しておきましょう。
 
-以下の記載はdb/migrate/2020xxxxxxxxx_sorcery_core.rbの記載です。（どんなことが書かれているのか不明瞭な場合は、[Railsガイド](https://railsguides.jp/active_record_migrations.html)や [Railsドキュメント](https://railsdoc.com/migration)等を参考にしてみましょう）
+以下の記載はdb/migrate/xxxxxxxxxxxxx_sorcery_core.rbの記載です。（xxxxは作った時の日付が入ります。どんなことが書かれているのか不明瞭な場合は、[Railsガイド](https://railsguides.jp/active_record_migrations.html)や [Railsドキュメント](https://railsdoc.com/migration)等を参考にしてみましょう）
 
 ```ruby
 class SorceryCore < ActiveRecord::Migration[5.2]
