@@ -140,6 +140,15 @@ $ rails g controller UserSessions new create destroy
 
 上記コマンド以降は[GitHub](https://github.com/Sorcery/sorcery/wiki/Simple-Password-Authentication#:~:text=Make%20it%20look%20like%20this%3A)に沿って記載を加えていきましょう。
 
+1. `user_sessions_controller.rb`に処理を書いていく(`login`、`redirect_back_or_to`、`logout`はSorceryで提供されているメソッドなので後ほど意味をしっかり理解しておきましょう)
+2. ログイン画面用に`new.html.erb`を書き換える
+3. ログイン画面用に`_form.html.erb`を新しく作る
+4. ログイン用に`routes.rb`にルーティングの設定を追記してコマンドによって出来てしまったいらない設定を削除する(コマンドによってどんなファイルができたり記述が追記されたりするのか少しずつ意識できるようになりましょう)
+5. flashメッセージを表示するために`application.html.erb`を書き換えましょう
+6. 各コントローラーに各アクションの実行前にログインしているかどうかをチェックする`require_login`を実行するかどうかの設定を書きましょう
+7. 元々はUserデータの作成成功時にUserの詳細画面に遷移するような設定になっているものを先ほどの`before_login`の設定でUserの詳細画面はログインしていないとみれないようにしたため`users_controller.rb`の記述を修正しましょう(`@user.save`成功時の処理に`format.html ~~~~~~~~`と書いてある人は`format.html`の`{}`の中身を書き換えてあげるようなイメージで大丈夫です)
+8. `application_controller.rb`に`require_login`で使うことになっている`not_authenticated`メソッドを追加しましょう
+
 
 ＊これでコードの記載は終了です。不安な方は[見本のコード](https://github.com/Tsuchiya2/experience_sorcery_app/pull/1/files)を用意しておりますので、そちらを参照してください。
 
