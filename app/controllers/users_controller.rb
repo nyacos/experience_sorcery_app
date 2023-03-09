@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ update destroy ]
+  skip_before_action :require_login, only: [:index, :new, :create]
 
   # GET /users or /users.json
   def index
@@ -17,8 +18,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to(:users, notice: 'User was successfully created') }
+        # format.html { redirect_to user_url(@user), notice: "User was successfully created." }
+        # format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -50,7 +52,10 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def not_authenticated
+      redirect_to login_path, alert: "Please login first"
+    end
+  # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
